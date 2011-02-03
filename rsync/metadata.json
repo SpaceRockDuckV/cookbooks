@@ -1,45 +1,45 @@
 {
-    "recommendations": {
-    },
-    "attributes": {
-    },
-    "maintainer": "Opscode, Inc.",
-    "suggestions": {
-    },
-    "dependencies": {
-    },
-    "maintainer_email": "cookbooks@opscode.com",
-    "conflicting": {
-    },
-    "platforms": {
-      "debian": [
+  "attributes": {
+  },
+  "suggestions": {
+  },
+  "recipes": {
+    "rsync": "Installs rsync"
+  },
+  "license": "Apache 2.0",
+  "conflicting": {
+  },
+  "dependencies": {
+  },
+  "providing": {
+  },
+  "long_description": "",
+  "name": "rsync",
+  "platforms": {
+    "ubuntu": [
 
-      ],
-      "fedora": [
+    ],
+    "fedora": [
 
-      ],
-      "centos": [
+    ],
+    "centos": [
 
-      ],
-      "ubuntu": [
+    ],
+    "debian": [
 
-      ],
-      "redhat": [
+    ],
+    "redhat": [
 
-      ]
-    },
-    "license": "Apache 2.0",
-    "version": "0.7.1",
-    "providing": {
-    },
-    "recipes": {
-      "rsync": "Installs rsync"
-    },
-    "replacing": {
-    },
-    "name": "rsync",
-    "description": "Installs rsync",
-    "groupings": {
-    },
-    "long_description": ""
+    ]
+  },
+  "maintainer": "Opscode, Inc.",
+  "description": "Installs rsync",
+  "version": "0.7.1",
+  "replacing": {
+  },
+  "maintainer_email": "cookbooks@opscode.com",
+  "groupings": {
+  },
+  "recommendations": {
   }
+}

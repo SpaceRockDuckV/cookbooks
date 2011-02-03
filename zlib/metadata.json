@@ -1,48 +1,48 @@
 {
-    "recommendations": {
-    },
-    "attributes": {
-    },
-    "maintainer": "Opscode, Inc.",
-    "suggestions": {
-    },
-    "dependencies": {
-    },
-    "maintainer_email": "cookbooks@opscode.com",
-    "conflicting": {
-    },
-    "platforms": {
-      "debian": [
+  "attributes": {
+  },
+  "suggestions": {
+  },
+  "recipes": {
+    "zlib": "Installs zlib development package"
+  },
+  "license": "Apache 2.0",
+  "conflicting": {
+  },
+  "dependencies": {
+  },
+  "providing": {
+  },
+  "long_description": "",
+  "name": "zlib",
+  "platforms": {
+    "ubuntu": [
 
-      ],
-      "fedora": [
+    ],
+    "fedora": [
 
-      ],
-      "centos": [
+    ],
+    "centos": [
 
-      ],
-      "ubuntu": [
+    ],
+    "suse": [
 
-      ],
-      "suse": [
+    ],
+    "debian": [
 
-      ],
-      "redhat": [
+    ],
+    "redhat": [
 
-      ]
-    },
-    "license": "Apache 2.0",
-    "version": "0.1.1",
-    "providing": {
-    },
-    "recipes": {
-      "zlib": "Installs zlib development package"
-    },
-    "replacing": {
-    },
-    "name": "zlib",
-    "description": "Installs zlib",
-    "groupings": {
-    },
-    "long_description": ""
+    ]
+  },
+  "maintainer": "Opscode, Inc.",
+  "description": "Installs zlib",
+  "version": "0.1.1",
+  "replacing": {
+  },
+  "maintainer_email": "cookbooks@opscode.com",
+  "groupings": {
+  },
+  "recommendations": {
   }
+}

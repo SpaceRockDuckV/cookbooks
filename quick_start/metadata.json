@@ -1,71 +1,71 @@
 {
-    "recommendations": {
-    },
-    "attributes": {
-      "quick_start/deep_thought": {
-        "required": "optional",
-        "calculated": false,
-        "choice": [
-
-        ],
-        "default": "If a tree falls in the forest...",
-        "type": "string",
-        "recipes": [
-
-        ],
-        "description": "A deep thought",
-        "display_name": "Quick Start Deep Thought"
-      }
-    },
-    "maintainer": "Opscode, Inc.",
-    "suggestions": {
-    },
-    "dependencies": {
-    },
-    "maintainer_email": "cookbooks@opscode.com",
-    "conflicting": {
-    },
-    "platforms": {
-      "openbsd": [
+  "attributes": {
+    "quick_start/deep_thought": {
+      "default": "If a tree falls in the forest...",
+      "calculated": false,
+      "type": "string",
+      "choice": [
 
       ],
-      "debian": [
-
-      ],
-      "solaris": [
-
-      ],
-      "centos": [
-
-      ],
-      "fedora": [
-
-      ],
-      "macosx": [
-
-      ],
-      "freebsd": [
-
-      ],
-      "ubuntu": [
-
-      ],
-      "redhat": [
+      "description": "A deep thought",
+      "display_name": "Quick Start Deep Thought",
+      "required": "optional",
+      "recipes": [
 
       ]
-    },
-    "license": "Apache 2.0",
-    "version": "0.8.0",
-    "providing": {
-    },
-    "recipes": {
-      "quick_start": "Quick start example cookbook"
-    },
-    "replacing": {
-    },
-    "name": "quick_start",
-    "description": "Example cookbook for quick_start wiki document",
-    "groupings": {
-    },
-    "long_description": ""
+    }
+  },
+  "suggestions": {
+  },
+  "recipes": {
+    "quick_start": "Quick start example cookbook"
+  },
+  "license": "Apache 2.0",
+  "conflicting": {
+  },
+  "dependencies": {
+  },
+  "providing": {
+  },
+  "long_description": "",
+  "name": "quick_start",
+  "platforms": {
+    "solaris": [
+
+    ],
+    "freebsd": [
+
+    ],
+    "ubuntu": [
+
+    ],
+    "openbsd": [
+
+    ],
+    "fedora": [
+
+    ],
+    "macosx": [
+
+    ],
+    "centos": [
+
+    ],
+    "debian": [
+
+    ],
+    "redhat": [
+
+    ]
+  },
+  "maintainer": "Opscode, Inc.",
+  "description": "Example cookbook for quick_start wiki document",
+  "version": "0.8.0",
+  "replacing": {
+  },
+  "maintainer_email": "cookbooks@opscode.com",
+  "groupings": {
+  },
+  "recommendations": {
   }
+}

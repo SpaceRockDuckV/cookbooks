@@ -1,29 +1,120 @@
 {
-  "name": "djbdns",
-  "description": "Installs djbdns and configures DNS services",
-  "long_description": "",
-  "maintainer": "Opscode, Inc.",
-  "maintainer_email": "cookbooks@opscode.com",
+  "attributes": {
+    "djbdns/axfrdns_ipaddress": {
+      "default": "127.0.0.1",
+      "calculated": false,
+      "type": "string",
+      "choice": [
+
+      ],
+      "description": "Specify the IP address for AXFR service",
+      "display_name": "DJB DNS AXFR IP Address",
+      "required": "optional",
+      "recipes": [
+
+      ]
+    },
+    "djbdns/public_dnscache_allowed_networks": {
+      "default": [
+        "ipaddress.split('.')[0,2].join('.')"
+      ],
+      "calculated": false,
+      "type": "array",
+      "choice": [
+
+      ],
+      "description": "Networks allowed to query the public dnscache",
+      "display_name": "DJB DNS Public DNS Cache Allowed Networks",
+      "required": "optional",
+      "recipes": [
+
+      ]
+    },
+    "djbdns/tinydns_internal_ipaddress": {
+      "default": "127.0.0.1",
+      "calculated": false,
+      "type": "string",
+      "choice": [
+
+      ],
+      "description": "Specify the IP address for internal TinyDNS",
+      "display_name": "DJB DNS TinyDNS Internal IP Address",
+      "required": "optional",
+      "recipes": [
+
+      ]
+    },
+    "djbdns/tinydns_internal_resolved_domain": {
+      "default": "domain",
+      "calculated": false,
+      "type": "string",
+      "choice": [
+
+      ],
+      "description": "Internal domain TinyDNS is resolver",
+      "display_name": "DJB DNS TinyDNS Internal Resolved Domain",
+      "required": "optional",
+      "recipes": [
+
+      ]
+    },
+    "djbdns/public_dnscache_ipaddress": {
+      "default": "ipaddress",
+      "calculated": false,
+      "type": "string",
+      "choice": [
+
+      ],
+      "description": "Specify the IP address for the public dnscache",
+      "display_name": "DJB DNS Public DNS Cache IP Address",
+      "required": "optional",
+      "recipes": [
+
+      ]
+    },
+    "djbdns/bin_dir": {
+      "default": "/usr/local/bin",
+      "calculated": false,
+      "type": "string",
+      "choice": [
+
+      ],
+      "description": "Location of the djbdns binaries",
+      "display_name": "DJB DNS Binaries Directory",
+      "required": "optional",
+      "recipes": [
+
+      ]
+    },
+    "djbdns/tinydns_ipaddress": {
+      "default": "127.0.0.1",
+      "calculated": false,
+      "type": "string",
+      "choice": [
+
+      ],
+      "description": "Specify the IP address for TinyDNS",
+      "display_name": "DJB DNS TinyDNS IP Address",
+      "required": "optional",
+      "recipes": [
+
+      ]
+    }
+  },
+  "suggestions": {
+  },
+  "recipes": {
+    "djbdns::internal_server": "Sets up internal TinyDNS",
+    "djbdns": "Installs djbdns from package or source and creates users",
+    "djbdns::server": "Sets up external TinyDNS",
+    "djbdns::axfr": "Sets up djbdns AXFR service",
+    "djbdns::cache": "Sets up public dnscache service"
+  },
   "license": "Apache 2.0",
-  "platforms": {
-    "ubuntu": [
-
-    ],
-    "debian": [
-
-    ],
-    "centos": [
-
-    ],
-    "rhel": [
-
-    ],
-    "arch": [
-
-    ]
+  "conflicting": {
   },
   "dependencies": {
-    "build-essential": [
+    "ucspi-tcp": [
 
     ],
     "runit": [
@@ -35,130 +126,39 @@
     "bluepill": [
 
     ],
-    "ucspi-tcp": [
+    "build-essential": [
 
     ]
   },
-  "recommendations": {
-  },
-  "suggestions": {
-  },
-  "conflicting": {
-  },
   "providing": {
   },
+  "long_description": "",
+  "name": "djbdns",
+  "platforms": {
+    "rhel": [
+
+    ],
+    "ubuntu": [
+
+    ],
+    "arch": [
+
+    ],
+    "centos": [
+
+    ],
+    "debian": [
+
+    ]
+  },
+  "maintainer": "Opscode, Inc.",
+  "description": "Installs djbdns and configures DNS services",
+  "version": "0.99.0",
   "replacing": {
   },
-  "attributes": {
-    "djbdns/tinydns_ipaddress": {
-      "display_name": "DJB DNS TinyDNS IP Address",
-      "description": "Specify the IP address for TinyDNS",
-      "default": "127.0.0.1",
-      "choice": [
-
-      ],
-      "calculated": false,
-      "type": "string",
-      "required": "optional",
-      "recipes": [
-
-      ]
-    },
-    "djbdns/tinydns_internal_ipaddress": {
-      "display_name": "DJB DNS TinyDNS Internal IP Address",
-      "description": "Specify the IP address for internal TinyDNS",
-      "default": "127.0.0.1",
-      "choice": [
-
-      ],
-      "calculated": false,
-      "type": "string",
-      "required": "optional",
-      "recipes": [
-
-      ]
-    },
-    "djbdns/axfrdns_ipaddress": {
-      "display_name": "DJB DNS AXFR IP Address",
-      "description": "Specify the IP address for AXFR service",
-      "default": "127.0.0.1",
-      "choice": [
-
-      ],
-      "calculated": false,
-      "type": "string",
-      "required": "optional",
-      "recipes": [
-
-      ]
-    },
-    "djbdns/public_dnscache_ipaddress": {
-      "display_name": "DJB DNS Public DNS Cache IP Address",
-      "description": "Specify the IP address for the public dnscache",
-      "default": "ipaddress",
-      "choice": [
-
-      ],
-      "calculated": false,
-      "type": "string",
-      "required": "optional",
-      "recipes": [
-
-      ]
-    },
-    "djbdns/public_dnscache_allowed_networks": {
-      "display_name": "DJB DNS Public DNS Cache Allowed Networks",
-      "description": "Networks allowed to query the public dnscache",
-      "type": "array",
-      "default": [
-        "ipaddress.split('.')[0,2].join('.')"
-      ],
-      "choice": [
-
-      ],
-      "calculated": false,
-      "required": "optional",
-      "recipes": [
-
-      ]
-    },
-    "djbdns/tinydns_internal_resolved_domain": {
-      "display_name": "DJB DNS TinyDNS Internal Resolved Domain",
-      "description": "Internal domain TinyDNS is resolver",
-      "default": "domain",
-      "choice": [
-
-      ],
-      "calculated": false,
-      "type": "string",
-      "required": "optional",
-      "recipes": [
-
-      ]
-    },
-    "djbdns/bin_dir": {
-      "display_name": "DJB DNS Binaries Directory",
-      "description": "Location of the djbdns binaries",
-      "default": "/usr/local/bin",
-      "choice": [
-
-      ],
-      "calculated": false,
-      "type": "string",
-      "required": "optional",
-      "recipes": [
-
-      ]
-    }
-  },
+  "maintainer_email": "cookbooks@opscode.com",
   "groupings": {
   },
-  "recipes": {
-    "djbdns": "Installs djbdns from package or source and creates users",
-    "djbdns::axfr": "Sets up djbdns AXFR service",
-    "djbdns::cache": "Sets up public dnscache service",
-    "djbdns::internal_server": "Sets up internal TinyDNS",
-    "djbdns::server": "Sets up external TinyDNS"
-  },
-  "version": "0.99.0"
+  "recommendations": {
+  }
 }
