@@ -32,6 +32,26 @@ when "debian","ubuntu"
     source "canonical.com.list.erb"
     notifies :run, resources(:execute => "apt-get update"), :immediately
   end
+when "centos"
+    execute "retrieving the jdk" do
+        command "wget -O /tmp/sun-jdk.bin http://cds.sun.com/is-bin/INTERSHOP.enfinity/WFS/CDS-CDS_Developer-Site/en_US/-/USD/VerifyItem-Start/jdk-6u23-linux-i586-rpm.bin?BundledLineItemUUID=BUqJ_hCyiWgAAAEtdYxKPu2S&OrderID=.8iJ_hCyvCYAAAEtXYxKPu2S&ProductID=QhOJ_hCw.dUAAAEsFIMcKluK&FileName=/jdk-6u23-linux-i586-rpm.bin"
+        creates "/tmp/sun-jdk.bin"
+        umask 744
+        notifies :run, resources(:execute => "source jdk vars"), :immediately
+    end
+
+    execute "installing the jdk" do
+        command "yes '^M' | /tmp/sun-jdk.bin"
+    end
+
+    template "/etc/profile.d/java.sh" do
+        source "java.sh"
+        notifies :run, resources(:execute => "source jdk vars"), :immediately
+    end
+
+    execute "source jdk vars" do
+        command "source /etc/profile.d/java.sh"
+    end
 else
-  Chef::Log.error("Installation of Sun Java packages are only supported on Debian/Ubuntu at this time.")
+  Chef::Log.error("Installation of Sun Java packages are only supported on Debian/Ubuntu/CentOS at this time.")
 end
