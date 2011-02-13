@@ -35,7 +35,7 @@ when "debian","ubuntu"
 when "centos"
     execute "retrieve the jdk" do
         # this url might need to be refreshed.  get a link from the jdk download site
-        command 'wget -O /tmp/sun-jdk.rpm.bin "http://cds.sun.com/is-bin/INTERSHOP.enfinity/WFS/CDS-CDS_Developer-Site/en_US/-/USD/VerifyItem-Start/jdk-6u23-linux-i586-rpm.bin?BundledLineItemUUID=OY.J_hCw2X0AAAEuNhcAHiAY&OrderID=HcmJ_hCwrnAAAAEuJxcAHiAY&ProductID=QhOJ_hCw.dUAAAEsFIMcKluK&FileName=/jdk-6u23-linux-i586-rpm.bin"'
+        command 'wget -O /tmp/sun-jdk.rpm.bin "http://cds.sun.com/is-bin/INTERSHOP.enfinity/WFS/CDS-CDS_Developer-Site/en_US/-/USD/VerifyItem-Start/jdk-6u23-linux-i586-rpm.bin?BundledLineItemUUID=.mmJ_hCvQTEAAAEuPMEpGyD7&OrderID=RrSJ_hCv_ncAAAEuMMEpGyD7&ProductID=QhOJ_hCw.dUAAAEsFIMcKluK&FileName=/jdk-6u23-linux-i586-rpm.bin"'
         creates "/tmp/sun-jdk.rpm.bin"
         umask 022
         user 'chef'
@@ -49,17 +49,12 @@ when "centos"
         # the jdk installer needs to run in it's own shell
         # echo ^M to bypass the prompts
         command %q{sh -c "yes '^M' | sudo /tmp/sun-jdk.rpm.bin"}
+        not_if "test -d /usr/java/"
     end
 
     template "/etc/profile.d/java.sh" do
         source "java.sh"
         mode 0755
-        notifies :run, "execute[source jdk vars]", :immediately
-    end
-   
-    execute "source jdk vars" do
-        command "source /etc/profile.d/java.sh"
-        action :nothing
     end
 else
   Chef::Log.error("Installation of Sun Java packages are only supported on Debian/Ubuntu/CentOS at this time.")
