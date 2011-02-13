@@ -30,27 +30,36 @@ when "debian","ubuntu"
   template "/etc/apt/sources.list.d/canonical.com.list" do
     mode "0644"
     source "canonical.com.list.erb"
-    notifies :run, resources(:execute => "apt-get update"), :immediately
+    notifies :run, "execute[apt-get update]", :immediately
   end
 when "centos"
-    execute "retrieving the jdk" do
-        command "wget -O /tmp/sun-jdk.bin http://cds.sun.com/is-bin/INTERSHOP.enfinity/WFS/CDS-CDS_Developer-Site/en_US/-/USD/VerifyItem-Start/jdk-6u23-linux-i586-rpm.bin?BundledLineItemUUID=BUqJ_hCyiWgAAAEtdYxKPu2S&OrderID=.8iJ_hCyvCYAAAEtXYxKPu2S&ProductID=QhOJ_hCw.dUAAAEsFIMcKluK&FileName=/jdk-6u23-linux-i586-rpm.bin"
-        creates "/tmp/sun-jdk.bin"
-        umask 744
-        notifies :run, resources(:execute => "source jdk vars"), :immediately
+    execute "retrieve the jdk" do
+        # this url might need to be refreshed.  get a link from the jdk download site
+        command 'wget -O /tmp/sun-jdk.rpm.bin "http://cds.sun.com/is-bin/INTERSHOP.enfinity/WFS/CDS-CDS_Developer-Site/en_US/-/USD/VerifyItem-Start/jdk-6u23-linux-i586-rpm.bin?BundledLineItemUUID=OY.J_hCw2X0AAAEuNhcAHiAY&OrderID=HcmJ_hCwrnAAAAEuJxcAHiAY&ProductID=QhOJ_hCw.dUAAAEsFIMcKluK&FileName=/jdk-6u23-linux-i586-rpm.bin"'
+        creates "/tmp/sun-jdk.rpm.bin"
+        umask 022
+        user 'chef'
     end
 
-    execute "installing the jdk" do
-        command "yes '^M' | /tmp/sun-jdk.bin"
+    execute "chmod a+x /tmp/sun-jdk.rpm.bin" do
+        action :run
+    end
+
+    execute "install the jdk" do
+        # the jdk installer needs to run in it's own shell
+        # echo ^M to bypass the prompts
+        command %q{sh -c "yes '^M' | sudo /tmp/sun-jdk.rpm.bin"}
     end
 
     template "/etc/profile.d/java.sh" do
         source "java.sh"
-        notifies :run, resources(:execute => "source jdk vars"), :immediately
+        mode 0755
+        notifies :run, "execute[source jdk vars]", :immediately
     end
-
+   
     execute "source jdk vars" do
         command "source /etc/profile.d/java.sh"
+        action :nothing
     end
 else
   Chef::Log.error("Installation of Sun Java packages are only supported on Debian/Ubuntu/CentOS at this time.")
