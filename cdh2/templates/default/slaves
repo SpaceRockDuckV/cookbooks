@@ -1,0 +1,1 @@
+<%= node.cdh2.slave_ips.join('\n') %>
