@@ -1,1 +1,5 @@
-<%= node.cdh2.master_ip %>
+<%= 
+search(:node, "role:job_tracker") do |node|
+    node.ipaddress
+end
+%>
