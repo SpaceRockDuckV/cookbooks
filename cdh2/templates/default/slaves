@@ -1,5 +1,1 @@
-<%=
-search(:node, "role:compute_node") do |node|
-    node.ipaddress
-end
-%>
+<%= @slave_ips.join("\n") %>

@@ -1,5 +1,1 @@
-<%= 
-search(:node, "role:job_tracker") do |node|
-    node.ipaddress
-end
-%>
+<%= @master_ip %>
