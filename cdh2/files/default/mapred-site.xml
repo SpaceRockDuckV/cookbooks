@@ -33,6 +33,6 @@
 	
 	<property>
 		<name>mapred.userlog.retain.hours</name>
-		<value>8</name>
+		<value>8</value>
 	</property>
 </configuration>
