@@ -19,7 +19,7 @@ package 'hadoop-0.20'
 
 %w(mapred, hdfs, core).each do |conf|
     cookbook_file "/etc/hadoop/conf/#{conf}-site.xml" do
-        source "#{conf}"
+        source "#{conf}-site.xml"
         owner "hadoop"
     end
 end
