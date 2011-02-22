@@ -5,6 +5,7 @@
 #
 # All rights reserved - Do Not Redistribute
 #
+include_recipe "java::sun"
 
 execute "add cloudera repo" do
     command 'sudo wget "http://archive.cloudera.com/redhat/cdh/cloudera-cdh2.repo"'
@@ -15,7 +16,6 @@ end
 execute 'sudo yum update yum -y'
 
 package 'hadoop-0.20'
-
 
 cookbook_file "/etc/hadoop/conf/hdfs-site.xml" do
     source "hdfs-site.xml"
