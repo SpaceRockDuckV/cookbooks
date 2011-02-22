@@ -30,3 +30,17 @@ end
         owner "hadoop"
     end
 end
+
+# dfs specific dirs
+%w(name, data).each do |dir|
+    directory "/usr/lib/hadoop/dfs/#{dir}" do
+        owner "hadoop"
+    end
+end
+
+# mapred specific dirs
+%w(local, temp).each do |dir|
+    directory "/usr/lib/hadoop/mapred/#{dir}" do
+        owner "hadoop"
+    end
+end
