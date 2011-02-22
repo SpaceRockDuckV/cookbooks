@@ -56,7 +56,7 @@ end
 
 # dfs specific dirs
 %w(name data).each do |dir|
-    directory "/usr/lib/hadoop/dfs/#{dir}" do
+    directory "/space/hadoop/dfs/#{dir}" do
         owner "hadoop"
         recursive true
     end
@@ -64,7 +64,7 @@ end
 
 # mapred specific dirs
 %w(local temp).each do |dir|
-    directory "/usr/lib/hadoop/mapred/#{dir}" do
+    directory "/space/hadoop/mapred/#{dir}" do
         owner "hadoop"
         recursive true
     end

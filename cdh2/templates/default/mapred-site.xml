@@ -11,13 +11,13 @@
 	
 	<property>
 		<name>mapred.local.dir</name>
-		<value>/usr/lib/hadoop/mapred/local</value>
+		<value>/space/hadoop/mapred/local</value>
 		<final>true</final>
 	</property>
 	
 	<property>
 		<name>mapred.temp.dir</name>
-		<value>/usr/lib/hadoop/mapred/temp</value>
+		<value>/space/hadoop/mapred/temp</value>
 		<final>true</final>
 	</property>
 	
