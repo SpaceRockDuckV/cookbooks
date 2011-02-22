@@ -17,14 +17,14 @@ execute 'sudo yum update yum -y'
 package 'hadoop-0.20'
 
 
-%w(mapred, hdfs, core).each do |conf|
+%w(mapred hdfs core).each do |conf|
     cookbook_file "/etc/hadoop/conf/#{conf}-site.xml" do
         source "#{conf}-site.xml"
         owner "hadoop"
     end
 end
 
-%w(masters, slaves).each do |conf|
+%w(masters slaves).each do |conf|
     template "/etc/hadoop/conf/#{conf}" do
         source "#{conf}"
         owner "hadoop"
@@ -32,14 +32,14 @@ end
 end
 
 # dfs specific dirs
-%w(name, data).each do |dir|
+%w(name data).each do |dir|
     directory "/usr/lib/hadoop/dfs/#{dir}" do
         owner "hadoop"
     end
 end
 
 # mapred specific dirs
-%w(local, temp).each do |dir|
+%w(local temp).each do |dir|
     directory "/usr/lib/hadoop/mapred/#{dir}" do
         owner "hadoop"
     end
