@@ -6,7 +6,7 @@
 <configuration>
 	<property>
 		<name>mapred.job.tracker</name>
-		<value>master:4040</value>
+                <value><%= @master_ip %>:4040</value>
 	</property>
 	
 	<property>

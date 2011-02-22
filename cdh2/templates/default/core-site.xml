@@ -6,6 +6,6 @@
 <configuration>
 	<property>
 		<name>fs.default.name</name>
-		<value>hdfs://master:4040</value>
+                <value>hdfs://<%= @name_node_ip %>:4040</value>
 	</property>
 </configuration>
