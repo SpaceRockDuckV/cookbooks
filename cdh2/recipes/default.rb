@@ -1,5 +1,4 @@
-#
-# Cookbook Name:: cdh2
+# # Cookbook Name:: cdh2
 # Recipe:: default
 #
 # Copyright 2011, YOUR_COMPANY_NAME
@@ -16,3 +15,11 @@ end
 execute 'sudo yum update yum -y'
 
 package 'hadoop-0.20'
+
+
+%w(mapred, hdfs, core).each do |conf|
+    cookbook_file "/etc/hadoop/cong/#{conf}-site.xml" do
+        source "#{conf}"
+        owner "hadoop"
+    end
+end
