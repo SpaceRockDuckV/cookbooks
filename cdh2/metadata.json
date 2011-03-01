@@ -15,6 +15,9 @@
   "long_description": "= DESCRIPTION:\n\n= REQUIREMENTS:\n\n= ATTRIBUTES:\n\n= USAGE:\n\n",
   "name": "cdh2",
   "platforms": {
+    "centos": [
+
+    ]
   },
   "maintainer": "Space Rock Duck Velociraptor",
   "description": "Installs/Configures Cloudera cdh2",
