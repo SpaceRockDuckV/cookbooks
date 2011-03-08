@@ -55,17 +55,21 @@ template "/etc/hadoop/conf/slaves" do
 end
 
 # dfs specific dirs
+# TODO: these should be the same as in hdfs-site.xml
 %w(name data).each do |dir|
     directory "/space/hadoop/dfs/#{dir}" do
-        owner "hadoop"
+        owner "hdfs"
+        group "hadoop"
         recursive true
     end
 end
 
 # mapred specific dirs
+# TODO: these should be the same as in mapred-site.xml
 %w(local temp).each do |dir|
     directory "/space/hadoop/mapred/#{dir}" do
-        owner "hadoop"
+        owner "mapred"
+        group "hadoop"
         recursive true
     end
 end
