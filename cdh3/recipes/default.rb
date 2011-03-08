@@ -82,7 +82,8 @@ end
 services_for_role = { 
     'name_node' => ['namenode'],
     'job_tracker' => ['jobtracker'],
-    'compute_node' => ['datanode', 'tasktracker']
+    'compute_node' => ['datanode', 'tasktracker'],
+    'hadoop_node' => []
 }
 
 node.roles.each do |role|
