@@ -79,26 +79,19 @@ end
     end
 end
 
-service "hadoop-0.20-namenode" do
-    only_if {node.roles.include? 'name_node'}
-    supports :status => true, :start => true, :stop => true, :restart => true
-    action [:enable, :start]
-end
+services_for_role = { 
+    'name_node' => ['namenode'],
+    'job_tracker' => ['jobtracker'],
+    'compute_node' => ['datanode', 'tasktracker']
+}
 
-service "hadoop-0.20-jobtracker" do
-    only_if {node.roles.include? 'job_tracker'}
-    supports :status => true, :start => true, :stop => true, :restart => true
-    action [:enable, :start]
-end
+node.roles.each do |role|
+    services_for_role[role].each do |service|
+        package "hadoop-0.20-#{service}"
 
-service "hadoop-0.20-datanode" do
-    only_if {node.roles.include? 'compute_node'}
-    supports :status => true, :start => true, :stop => true, :restart => true
-    action [:enable, :start]
-end
-
-service "hadoop-0.20-tasktracker" do
-    only_if {node.roles.include? 'compute_node'}
-    supports :status => true, :start => true, :stop => true, :restart => true
-    action [:enable, :start]
+        service "hadoop-0.20-#{service}" do
+            supports :status => true, :start => true, :stop => true, :restart => true
+            action [:enable, :start]
+        end
+    end
 end
