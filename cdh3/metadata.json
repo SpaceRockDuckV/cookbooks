@@ -1,0 +1,32 @@
+{
+  "attributes": {
+  },
+  "suggestions": {
+  },
+  "recipes": {
+  },
+  "license": "All rights reserved",
+  "conflicting": {
+  },
+  "dependencies": {
+  },
+  "providing": {
+  },
+  "long_description": "= DESCRIPTION:\n\n= REQUIREMENTS:\n\n= ATTRIBUTES:\n\n= USAGE:\n\n",
+  "name": "cdh3",
+  "platforms": {
+    "centos": [
+
+    ]
+  },
+  "maintainer": "Space Rock Duck Velociraptor",
+  "description": "Installs/Configures Cloudera cdh3",
+  "version": "0.0.1",
+  "replacing": {
+  },
+  "maintainer_email": "samneubardt@gmail.com",
+  "groupings": {
+  },
+  "recommendations": {
+  }
+}
