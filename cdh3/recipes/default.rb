@@ -87,12 +87,11 @@ execute "sudo chmod g+w /var/log/hadoop-0.20"
 services_for_role = { 
     'name_node' => ['namenode'],
     'job_tracker' => ['jobtracker'],
-    'compute_node' => ['datanode', 'tasktracker'],
-    'hadoop_node' => []
+    'compute_node' => ['datanode', 'tasktracker']
 }
 
 node.roles.each do |role|
-    services_for_role[role].each do |service|
+    services_for_role.fetch(role, []).each do |service|
         package "hadoop-0.20-#{service}"
 
         service "hadoop-0.20-#{service}" do
