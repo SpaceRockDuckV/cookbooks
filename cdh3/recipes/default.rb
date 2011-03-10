@@ -79,6 +79,11 @@ end
     end
 end
 
+execute "sudo chgrp -R hadoop /etc/hadoop/conf/"
+execute "sudo chmod -R g+r /etc/hadoop/conf/"
+execute "sudo chown -R mapred:hadoop /var/log/hadoop-0.20/"
+execute "sudo chmod g+w /var/log/hadoop-0.20"
+
 services_for_role = { 
     'name_node' => ['namenode'],
     'job_tracker' => ['jobtracker'],
