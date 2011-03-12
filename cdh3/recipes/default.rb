@@ -17,6 +17,10 @@ execute 'sudo yum update yum -y'
 
 package 'hadoop-0.20'
 
+if node[:hue][:enabled]
+    package 'hue-plugins'
+end
+
 
 # get the address of the job tracker
 search(:node, "role:job_tracker") do |node|
