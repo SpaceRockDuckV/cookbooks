@@ -30,4 +30,21 @@
 		<name>dfs.replication</name>
 		<value>3</value>
 	</property>
+        <% if node.hue.enabled %>
+        <property>
+            <name>dfs.namenode.plugins</name>
+            <value>org.apache.hadoop.thriftfs.NamenodePlugin</value>
+            <description>Comma-separated list of namenode plug-ins to be activated.
+            </description>
+        </property>
+        <property>
+            <name>dfs.datanode.plugins</name>
+            <value>org.apache.hadoop.thriftfs.DatanodePlugin</value>
+            <description>Comma-separated list of datanode plug-ins to be activated.
+            </description>
+        </property>
+        <property>
+            <name>dfs.thrift.address</name> <value>0.0.0.0:10090</value>
+        </property>
+        <% end %>
 </configuration>

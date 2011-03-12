@@ -1,9 +1,37 @@
 {
   "attributes": {
+    "hue/enabled": {
+      "calculated": false,
+      "type": "string",
+      "choice": [
+
+      ],
+      "description": "Should Hue be installed on the cluster?",
+      "display_name": "Hue Enabled",
+      "required": "optional",
+      "recipes": [
+
+      ]
+    },
+    "hue/secret_key": {
+      "calculated": false,
+      "type": "string",
+      "choice": [
+
+      ],
+      "description": "The secret key for Hue",
+      "display_name": "Secret Key",
+      "required": "optional",
+      "recipes": [
+
+      ]
+    }
   },
   "suggestions": {
   },
   "recipes": {
+    "cdh3": "Install hadoop",
+    "cdh3::hue": "Install hue"
   },
   "license": "All rights reserved",
   "conflicting": {

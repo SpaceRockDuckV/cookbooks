@@ -35,4 +35,15 @@
 		<name>mapred.userlog.retain.hours</name>
 		<value>8</value>
 	</property>
+        <% if node.hue.enabled %>
+        <property>
+            <name>jobtracker.thrift.address</name>
+            <value>0.0.0.0:9290</value>
+        </property>
+        <property>
+            <name>mapred.jobtracker.plugins</name>
+            <value>org.apache.hadoop.thriftfs.ThriftJobTrackerPlugin</value>
+            <description>Comma-separated list of jobtracker plug-ins to be activated.</description>
+        </property>
+        <% end %>
 </configuration>
