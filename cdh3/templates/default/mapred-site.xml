@@ -35,7 +35,7 @@
 		<name>mapred.userlog.retain.hours</name>
 		<value>8</value>
 	</property>
-        <% if node.hue.enabled %>
+        <% if node[:hue][:enabled] %>
         <property>
             <name>jobtracker.thrift.address</name>
             <value>0.0.0.0:9290</value>

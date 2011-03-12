@@ -30,7 +30,7 @@
 		<name>dfs.replication</name>
 		<value>3</value>
 	</property>
-        <% if node.hue.enabled %>
+        <% if node[:hue][:enabled] %>
         <property>
             <name>dfs.namenode.plugins</name>
             <value>org.apache.hadoop.thriftfs.NamenodePlugin</value>
