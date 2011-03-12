@@ -20,7 +20,7 @@ package 'hadoop-0.20'
 
 # get the address of the job tracker
 search(:node, "role:job_tracker") do |node|
-    %w(hdfs-site.xml masters mapred-site.xml) do |config|
+    %w(hdfs-site.xml masters mapred-site.xml).each do |config|
         template "/etc/hadoop/conf/#{config}" do
             source "#{config}"
             owner "hdfs"
