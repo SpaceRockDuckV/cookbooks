@@ -30,8 +30,6 @@
   "suggestions": {
   },
   "recipes": {
-    "cdh3": "Install hadoop",
-    "cdh3::hue": "Install hue"
   },
   "license": "All rights reserved",
   "conflicting": {
