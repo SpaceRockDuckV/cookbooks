@@ -15,7 +15,7 @@ execute 'retrieve installation jar' do
     creates '/tmp/jython_installer-2.5.2.jar'
 end
 
-directory '/usr/local/share/java/srdv/' do
+directory '/usr/local/share/java/srdv/jython' do
     action :create
     group "hadoop"
     mode "0775"
@@ -23,6 +23,7 @@ directory '/usr/local/share/java/srdv/' do
 end
 
 execute 'install jython' do
-    command 'java -jar jython_installer-2.5.2.jar -s -d /usr/local/share/java/srdv/ -e demo,doc,src'
+    command 'sudo java -jar jython_installer-2.5.2.jar -s -d /usr/local/share/java/srdv/jython -e demo doc src'
     cwd '/tmp'
+    creates '/usr/local/share/java/srdv/jython/jython'
 end
