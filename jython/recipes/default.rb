@@ -15,6 +15,13 @@ execute 'retrieve installation jar' do
     creates '/tmp/jython_installer-2.5.2.jar'
 end
 
+directory '/usr/local/share/java/srdv/' do
+    action :create
+    group "hadoop"
+    mode "0775"
+    recursive true
+end
+
 execute 'install jython' do
     command 'java -jar jython_installer-2.5.2.jar -s -d /usr/local/share/java/srdv/ -e demo,doc,src'
     cwd '/tmp'
