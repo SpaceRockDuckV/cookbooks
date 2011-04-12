@@ -10,20 +10,21 @@
 include_recipe 'java::sun'
 
 execute 'retrieve installation jar' do
-    command 'wget "http://downloads.sourceforge.net/project/jython/jython/2.5.2/jython_installer-2.5.2.jar?r=http%3A%2F%2Fwww.jython.org%2Fdownloads.html&ts=1302018977&use_mirror=superb-sea2"'
-    cwd '/tmp'
-    creates '/tmp/jython_installer-2.5.2.jar'
+  command 'wget "http://downloads.sourceforge.net/project/jython/jython/2.5.2/jython_installer-2.5.2.jar?r=http%3A%2F%2Fwww.jython.org%2Fdownloads.html&ts=1302018977&use_mirror=superb-sea2"'
+  cwd '/tmp'
+  creates '/tmp/jython_installer-2.5.2.jar'
 end
 
 directory '/usr/local/share/java/srdv/jython' do
-    action :create
-    group "hadoop"
-    mode "0775"
-    recursive true
+  action :create
+  owner 'hadoop'
+  group 'hadoop'
+  mode '0775'
+  recursive true
 end
 
 execute 'install jython' do
-    command 'sudo java -jar jython_installer-2.5.2.jar -s -d /usr/local/share/java/srdv/jython -e demo doc src'
-    cwd '/tmp'
-    creates '/usr/local/share/java/srdv/jython/jython'
+  command 'sudo java -jar jython_installer-2.5.2.jar -s -d /usr/local/share/java/srdv/jython -e demo doc src'
+  cwd '/tmp'
+  creates '/usr/local/share/java/srdv/jython/jython'
 end
