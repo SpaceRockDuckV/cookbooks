@@ -8,7 +8,6 @@ directory '/usr/local/share/java/srdv/' do
   group 'hadoop'
   mode 0755
   recursive true
-  creates '/usr/local/share/java/srdv/'
 end
 
 cookbook_file '/usr/local/share/java/srdv/' do

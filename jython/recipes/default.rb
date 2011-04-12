@@ -21,7 +21,6 @@ directory '/usr/local/share/java/srdv/jython' do
   group 'hadoop'
   mode '0775'
   recursive true
-  creates '/usr/local/share/java/srdv/'
 end
 
 execute 'install jython' do
