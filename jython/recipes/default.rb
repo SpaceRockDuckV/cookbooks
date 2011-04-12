@@ -17,7 +17,7 @@ end
 
 directory '/usr/local/share/java/srdv/jython' do
   action :create
-  owner 'mapred'
+  owner 'hadoop'
   group 'hadoop'
   mode '0775'
   recursive true

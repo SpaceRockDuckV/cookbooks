@@ -4,7 +4,7 @@ package 'netcdf'
 
 directory '/usr/local/share/java/srdv/' do
   action :create
-  owner 'mapred'
+  owner 'hadoop'
   group 'hadoop'
   mode 0755
   recursive true
@@ -13,14 +13,14 @@ end
 
 cookbook_file '/usr/local/share/java/srdv/' do
   source 'libmapscript.so'
-  owner 'mapred'
+  owner 'hadoop'
   group 'hadoop'
   mode 0775
 end
 
 cookbook_file '/usr/local/share/java/srdv/' do
   source 'mapscript.jar'
-  owner 'mapred'
+  owner 'hadoop'
   group 'hadoop'
   mode 0775
 end
